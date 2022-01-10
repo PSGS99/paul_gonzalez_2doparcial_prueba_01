@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivityFragment"
-    tools:showIn="@layout/activity_main">
+    tools:showIn="@layout/psgs_activity_main">
 
 
     <TextView
@@ -82,7 +82,7 @@
                 android:background="@color/button_enabled"
                 android:lines="2"
                 android:text="Button"
-                android:textColor="@color/button_text_colour" />
+                android:textColor="@color/psgs_button_text_colour" />
 
             <Button
                 android:id="@+id/button5"
@@ -93,7 +93,7 @@
                 android:background="@color/button_enabled"
                 android:lines="2"
                 android:text="Button"
-                android:textColor="@color/button_text_colour" />
+                android:textColor="@color/psgs_button_text_colour" />
 
         </TableRow>
 
@@ -111,7 +111,7 @@
                 android:background="@color/button_enabled"
                 android:lines="2"
                 android:text="Button"
-                android:textColor="@color/button_text_colour" />
+                android:textColor="@color/psgs_button_text_colour" />
 
             <Button
                 android:id="@+id/button7"
@@ -122,7 +122,7 @@
                 android:background="@color/button_enabled"
                 android:lines="2"
                 android:text="Button"
-                android:textColor="@color/button_text_colour" />
+                android:textColor="@color/psgs_button_text_colour" />
         </TableRow>
 
         <TableRow
@@ -139,7 +139,7 @@
                 android:background="@color/button_enabled"
                 android:lines="2"
                 android:text="Button"
-                android:textColor="@color/button_text_colour" />
+                android:textColor="@color/psgs_button_text_colour" />
 
             <Button
                 android:id="@+id/button9"
@@ -150,7 +150,7 @@
                 android:background="@color/button_enabled"
                 android:lines="2"
                 android:text="Button"
-                android:textColor="@color/button_text_colour" />
+                android:textColor="@color/psgs_button_text_colour" />
         </TableRow>
 
         <TableRow
@@ -167,7 +167,7 @@
                 android:background="@color/button_enabled"
                 android:lines="2"
                 android:text="Button"
-                android:textColor="@color/button_text_colour" />
+                android:textColor="@color/psgs_button_text_colour" />
 
             <Button
                 android:id="@+id/button11"
@@ -178,7 +178,7 @@
                 android:background="@color/button_enabled"
                 android:lines="2"
                 android:text="Button"
-                android:textColor="@color/button_text_colour" />
+                android:textColor="@color/psgs_button_text_colour" />
         </TableRow>
     </TableLayout>
 

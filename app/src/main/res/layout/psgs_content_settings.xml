@@ -4,5 +4,5 @@
     android:name="com.gonzalezp.apps.androidfunwithflags.SettingsActivityFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:layout="@layout/fragment_settings" />
+    tools:layout="@layout/psgs_fragment_settings" />
 
