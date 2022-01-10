@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="com.gonzalezp.apps.androidfunwithflags.MainActivity"
+            android:name="com.gonzalezp.apps.androidfunwithflags.psgs_MainActivity"
             android:label="@string/app_name"
             android:launchMode="singleTop"
             android:theme="@style/AppTheme.NoActionBar">
@@ -21,13 +21,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.gonzalezp.apps.androidfunwithflags.SettingsActivity"
+            android:name="com.gonzalezp.apps.androidfunwithflags.psgs_SettingsActivity"
             android:label="@string/title_activity_settings"
-            android:parentActivityName="com.gonzalezp.apps.androidfunwithflags.MainActivity"
+            android:parentActivityName="com.gonzalezp.apps.androidfunwithflags.psgs_MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.gonzalezp.apps.androidfunwithflags.MainActivity" />
+                android:value="com.gonzalezp.apps.androidfunwithflags.psgs_MainActivity" />
         </activity>
     </application>
 

@@ -29,9 +29,9 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 
 import com.gonzalezp.apps.eventhandlers.GuessButtonListener;
-import com.gonzalezp.apps.lifecyclehelpers.QuizViewModel;
+import com.gonzalezp.apps.lifecyclehelpers.psgs_QuizViewModel;
 
-public class MainActivityFragment extends Fragment {
+public class psgs_MainActivityFragment extends Fragment {
 
     private SecureRandom random;
     private Animation shakeAnimation;
@@ -40,12 +40,12 @@ public class MainActivityFragment extends Fragment {
     private ImageView flagImageView;
     private TableRow[] guessTableRows;
     private TextView answerTextView;
-    private QuizViewModel quizViewModel;
+    private psgs_QuizViewModel psgsQuizViewModel;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.quizViewModel = ViewModelProviders.of(getActivity()).get(QuizViewModel.class);
+        this.psgsQuizViewModel = ViewModelProviders.of(getActivity()).get(psgs_QuizViewModel.class);
     }
 
     @Override
@@ -74,7 +74,7 @@ public class MainActivityFragment extends Fragment {
                     this.guessTableRows[i] = (TableRow) answersTableLayout.getChildAt(i);
                 }
             } catch (ArrayStoreException e) {
-                Log.e(QuizViewModel.getTag(),
+                Log.e(psgs_QuizViewModel.getTag(),
                         "Error getting button rows on loop #" + String.valueOf(i), e);
             }
         }
@@ -86,13 +86,13 @@ public class MainActivityFragment extends Fragment {
         }
 
         this.questionNumberTextView.setText(
-                getString(R.string.question, 1, QuizViewModel.getFlagsInQuiz()));
+                getString(R.string.question, 1, psgs_QuizViewModel.getFlagsInQuiz()));
         return view;
     }
 
     public void updateGuessRows() {
 
-        int numberOfGuessRows = this.quizViewModel.getGuessRows();
+        int numberOfGuessRows = this.psgsQuizViewModel.getGuessRows();
         for (TableRow row : this.guessTableRows) {
             row.setVisibility(View.GONE);
         }
@@ -102,21 +102,21 @@ public class MainActivityFragment extends Fragment {
     }
 
     public void resetQuiz() {
-        this.quizViewModel.clearFileNameList();
-        this.quizViewModel.setFileNameList(getActivity().getAssets());
-        this.quizViewModel.resetTotalGuesses();
-        this.quizViewModel.resetCorrectAnswers();
-        this.quizViewModel.clearQuizCountriesList();
+        this.psgsQuizViewModel.clearFileNameList();
+        this.psgsQuizViewModel.setFileNameList(getActivity().getAssets());
+        this.psgsQuizViewModel.resetTotalGuesses();
+        this.psgsQuizViewModel.resetCorrectAnswers();
+        this.psgsQuizViewModel.clearQuizCountriesList();
 
         int flagCounter = 1;
-        int numberOfFlags = this.quizViewModel.getFileNameList().size();
-        while (flagCounter <= QuizViewModel.getFlagsInQuiz()) {
+        int numberOfFlags = this.psgsQuizViewModel.getFileNameList().size();
+        while (flagCounter <= psgs_QuizViewModel.getFlagsInQuiz()) {
             int randomIndex = this.random.nextInt(numberOfFlags);
 
-            String filename = this.quizViewModel.getFileNameList().get(randomIndex);
+            String filename = this.psgsQuizViewModel.getFileNameList().get(randomIndex);
 
-            if (!this.quizViewModel.getQuizCountriesList().contains(filename)) {
-                this.quizViewModel.getQuizCountriesList().add(filename);
+            if (!this.psgsQuizViewModel.getQuizCountriesList().contains(filename)) {
+                this.psgsQuizViewModel.getQuizCountriesList().add(filename);
                 ++flagCounter;
             }
         }
@@ -127,46 +127,46 @@ public class MainActivityFragment extends Fragment {
 
     private void loadNextFlag() {
         AssetManager assets = getActivity().getAssets();
-        String nextImage = this.quizViewModel.getNextCountryFlag();
+        String nextImage = this.psgsQuizViewModel.getNextCountryFlag();
         String region = nextImage.substring(0, nextImage.indexOf('-'));
 
-        this.quizViewModel.setCorrectAnswer(nextImage);
+        this.psgsQuizViewModel.setCorrectAnswer(nextImage);
         answerTextView.setText("");
 
         questionNumberTextView.setText(getString(R.string.question,
-                (quizViewModel.getCorrectAnswers() + 1), QuizViewModel.getFlagsInQuiz()));
+                (psgsQuizViewModel.getCorrectAnswers() + 1), psgs_QuizViewModel.getFlagsInQuiz()));
 
         try (InputStream stream = assets.open(region + "/" + nextImage + ".png")) {
             Drawable flag = Drawable.createFromStream(stream, nextImage);
             flagImageView.setImageDrawable(flag);
             animate(false);
         } catch (IOException e) {
-            Log.e(QuizViewModel.getTag(), "Error Loading " + nextImage, e);
+            Log.e(psgs_QuizViewModel.getTag(), "Error Loading " + nextImage, e);
         }
 
-        this.quizViewModel.shuffleFilenameList();
+        this.psgsQuizViewModel.shuffleFilenameList();
 
-        for (int rowNumber = 0; rowNumber < this.quizViewModel.getGuessRows(); rowNumber++) {
+        for (int rowNumber = 0; rowNumber < this.psgsQuizViewModel.getGuessRows(); rowNumber++) {
             for (int column = 0; column < guessTableRows[rowNumber].getChildCount(); column++) {
                 Button guessButton = (Button) guessTableRows[rowNumber].getVirtualChildAt(column);
                 guessButton.setEnabled(true);
-                String filename = this.quizViewModel.getFileNameList()
+                String filename = this.psgsQuizViewModel.getFileNameList()
                         .get((rowNumber * 2) + column)
-                        .substring(this.quizViewModel.getFileNameList()
+                        .substring(this.psgsQuizViewModel.getFileNameList()
                                 .get((rowNumber * 2) + column).indexOf('-') + 1)
                         .replace('_', ' ');
                 guessButton.setText(filename);
             }
         }
 
-        int row = this.random.nextInt(this.quizViewModel.getGuessRows());
+        int row = this.random.nextInt(this.psgsQuizViewModel.getGuessRows());
         int column = this.random.nextInt(2);
         TableRow randomRow = guessTableRows[row];
-        ((Button) randomRow.getChildAt(column)).setText(this.quizViewModel.getCorrectCountryName());
+        ((Button) randomRow.getChildAt(column)).setText(this.psgsQuizViewModel.getCorrectCountryName());
     }
 
     public void animate(boolean animateOut) {
-        if (this.quizViewModel.getCorrectAnswers() == 0) {
+        if (this.psgsQuizViewModel.getCorrectAnswers() == 0) {
             return;
         }
         int centreX = (quizConstraintLayout.getLeft() + quizConstraintLayout.getRight()) / 2;
@@ -211,8 +211,8 @@ public class MainActivityFragment extends Fragment {
         return answerTextView;
     }
 
-    public QuizViewModel getQuizViewModel() {
-        return quizViewModel;
+    public psgs_QuizViewModel getQuizViewModel() {
+        return psgsQuizViewModel;
     }
 }
 

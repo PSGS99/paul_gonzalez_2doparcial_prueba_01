@@ -6,17 +6,17 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
-import com.gonzalezp.apps.androidfunwithflags.MainActivityFragment;
+import com.gonzalezp.apps.androidfunwithflags.psgs_MainActivityFragment;
 import com.gonzalezp.apps.androidfunwithflags.R;
-import com.gonzalezp.apps.androidfunwithflags.ResultsDialogFragment;
-import com.gonzalezp.apps.lifecyclehelpers.QuizViewModel;
+import com.gonzalezp.apps.androidfunwithflags.psgs_ResultsDialogFragment;
+import com.gonzalezp.apps.lifecyclehelpers.psgs_QuizViewModel;
 
 public class GuessButtonListener implements OnClickListener {
-    private MainActivityFragment mainActivityFragment;
+    private psgs_MainActivityFragment psgsMainActivityFragment;
     private Handler handler;
 
-    public GuessButtonListener(MainActivityFragment mainActivityFragment) {
-        this.mainActivityFragment = mainActivityFragment;
+    public GuessButtonListener(psgs_MainActivityFragment psgsMainActivityFragment) {
+        this.psgsMainActivityFragment = psgsMainActivityFragment;
         this.handler = new Handler();
     }
 
@@ -24,26 +24,26 @@ public class GuessButtonListener implements OnClickListener {
     public void onClick(View v) {
         Button guessButton = ((Button) v);
         String guess = guessButton.getText().toString();
-        String answer = this.mainActivityFragment.getQuizViewModel().getCorrectCountryName();
-        this.mainActivityFragment.getQuizViewModel().setTotalGuesses(1);
+        String answer = this.psgsMainActivityFragment.getQuizViewModel().getCorrectCountryName();
+        this.psgsMainActivityFragment.getQuizViewModel().setTotalGuesses(1);
 
         if (guess.equals(answer)) {
-            this.mainActivityFragment.getQuizViewModel().setCorrectAnswers(1);
-            this.mainActivityFragment.getAnswerTextView().setText(answer + "!");
-            this.mainActivityFragment.getAnswerTextView().setTextColor(
-                    this.mainActivityFragment.getResources().getColor(R.color.correct_answer));
+            this.psgsMainActivityFragment.getQuizViewModel().setCorrectAnswers(1);
+            this.psgsMainActivityFragment.getAnswerTextView().setText(answer + "!");
+            this.psgsMainActivityFragment.getAnswerTextView().setTextColor(
+                    this.psgsMainActivityFragment.getResources().getColor(R.color.correct_answer));
 
-            this.mainActivityFragment.disableButtons();
+            this.psgsMainActivityFragment.disableButtons();
 
-            if (this.mainActivityFragment.getQuizViewModel().getCorrectAnswers()
-                    == QuizViewModel.getFlagsInQuiz()) {
-                ResultsDialogFragment quizResults = new ResultsDialogFragment();
+            if (this.psgsMainActivityFragment.getQuizViewModel().getCorrectAnswers()
+                    == psgs_QuizViewModel.getFlagsInQuiz()) {
+                psgs_ResultsDialogFragment quizResults = new psgs_ResultsDialogFragment();
                 quizResults.setCancelable(false);
                 try {
-                    quizResults.show(this.mainActivityFragment.getChildFragmentManager(), "Quiz Results");
+                    quizResults.show(this.psgsMainActivityFragment.getChildFragmentManager(), "Quiz Results");
                 } catch (NullPointerException e) {
-                    Log.e(QuizViewModel.getTag(),
-                            "GuessButtonListener: this.mainActivityFragment.getFragmentManager() " +
+                    Log.e(psgs_QuizViewModel.getTag(),
+                            "GuessButtonListener: this.psgsMainActivityFragment.getFragmentManager() " +
                                     "returned null",
                             e);
                 }
@@ -52,12 +52,12 @@ public class GuessButtonListener implements OnClickListener {
                         new Runnable() {
                             @Override
                             public void run() {
-                                mainActivityFragment.animate(true);
+                                psgsMainActivityFragment.animate(true);
                             }
                         }, 2000);
             }
         } else {
-            this.mainActivityFragment.incorrectAnswerAnimation();
+            this.psgsMainActivityFragment.incorrectAnswerAnimation();
             guessButton.setEnabled(false);
         }
     }
