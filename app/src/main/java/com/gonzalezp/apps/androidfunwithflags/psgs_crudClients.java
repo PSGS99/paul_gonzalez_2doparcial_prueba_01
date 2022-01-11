@@ -21,10 +21,10 @@ public class psgs_crudClients extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.psgs_activity_main);
 
-        editTextCodigo = findViewById(R.id.editTextCodigo);
-        editTextNombre = findViewById(R.id.editTextNombre);
-        editTextApellido = findViewById(R.id.editTextApellido);
-        editTextCorreo = findViewById(R.id.editTextCorreo);
+        //editTextCodigo = findViewById(R.id.editTextCodigo);
+        //editTextNombre = findViewById(R.id.editTextNombre);
+        //editTextApellido = findViewById(R.id.editTextApellido);
+        //editTextCorreo = findViewById(R.id.editTextCorreo);
     }
 
     public void onClicInsertar(View view){
