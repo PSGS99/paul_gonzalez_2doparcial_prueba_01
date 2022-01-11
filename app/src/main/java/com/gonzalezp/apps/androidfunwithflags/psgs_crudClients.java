@@ -1,14 +1,16 @@
 package com.gonzalezp.apps.androidfunwithflags;
 
 import android.content.ContentValues;
+import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class psgs_crudClients {
+public class psgs_crudClients extends AppCompatActivity {
 
     private EditText editTextCodigo;
     private EditText editTextNombre;
@@ -17,12 +19,12 @@ public class psgs_crudClients {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.psgs_activity_main);
 
-        editTextCodigo = findViewById(R.id.editTextCodigo);
-        editTextNombre = findViewById(R.id.editTextNombre);
-        editTextApellido = findViewById(R.id.editTextApellido);
-        editTextCorreo = findViewById(R.id.editTextCorreo);
+        //editTextCodigo = findViewById(R.id.editTextCodigo);
+        //editTextNombre = findViewById(R.id.editTextNombre);
+        //editTextApellido = findViewById(R.id.editTextApellido);
+        //editTextCorreo = findViewById(R.id.editTextCorreo);
     }
 
     public void onClicInsertar(View view){

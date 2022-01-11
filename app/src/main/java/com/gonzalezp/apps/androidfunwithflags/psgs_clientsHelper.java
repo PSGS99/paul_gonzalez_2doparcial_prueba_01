@@ -11,12 +11,8 @@ public class psgs_clientsHelper extends SQLiteOpenHelper {
             "(Codigo INTEGER PRIMARY KEY AUTOINCREMENT, " + "Nombre TEXT, " +
             "Apellido TEXT, " + "Correo TEXT )";
 
-    public psgs_clientsHelper(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
+    public psgs_clientsHelper(@Nullable psgs_crudClients context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
-    }
-
-    public psgs_clientsHelper(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version, @Nullable DatabaseErrorHandler errorHandler) {
-        super(context, name, factory, version, errorHandler);
     }
 
     @Override

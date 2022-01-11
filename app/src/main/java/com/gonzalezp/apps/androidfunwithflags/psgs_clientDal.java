@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class psgs_clientDal {
     private psgs_clientsHelper clientesHelper; // crea la BD
     private SQLiteDatabase sql;
-    private Context context;
+    private psgs_crudClients context;
 
     public psgs_clientDal(psgs_crudClients context){
         this.context=context;
