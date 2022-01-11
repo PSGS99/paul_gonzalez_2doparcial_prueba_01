@@ -19,19 +19,7 @@
             android:name=".Activity_Login"
             android:exported="false" />
         -->
-        <!--
-        <activity
-            android:name=".psgs_crudClients"
-            android:label="@string/app_name"
-            android:launchMode="singleTop"
-            android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        -->
         <activity
             android:name=".Activity_Login"
             android:label="@string/app_name"
@@ -43,6 +31,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".psgs_crudClients"
+            android:label="@string/app_name"
+            android:launchMode="singleTop"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
         <activity
             android:name=".psgs_MainActivity"
             android:label="@string/app_name"
@@ -54,6 +55,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".psgs_SettingsActivity"
             android:label="@string/title_activity_settings"
