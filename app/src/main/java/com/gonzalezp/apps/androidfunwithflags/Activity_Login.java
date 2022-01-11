@@ -16,21 +16,21 @@ public class Activity_Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        boton = findViewById(R.id.button2);
+        boton = findViewById(R.id.button_banderas);
         boton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent intent = new Intent();
-                setResult(RESULT_OK, intent);
+                Intent myIntent = new Intent(view.getContext(), psgs_MainActivity.class);
+                startActivityForResult(myIntent, 0);
                 finish();
             }
 
         });
 
-        boton2 = findViewById(R.id.button);
+        boton2 = findViewById(R.id.button_admin);
         boton2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent intent = new Intent();
-                setResult(RESULT_OK, intent);
+                Intent myIntent = new Intent(view.getContext(), psgs_crudClients.class);
+                startActivityForResult(myIntent, 0);
                 finish();
             }
 
